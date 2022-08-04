@@ -15,13 +15,21 @@ backgroundLayer4.src = './backgrounds/layer-4.png';
 const backgroundLayer5 = new Image();
 backgroundLayer5.src = './backgrounds/layer-5.png';
 
+const slider = document.getElementById('slider');
+slider.value = gameSpeed;
+const showGameSpeed = document.getElementById('showGameSpeed');
+showGameSpeed.innerHTML = gameSpeed;
+slider.addEventListener('change', function(e){
+    gameSpeed = e.target.value;
+    showGameSpeed.innerHTML = e.target.value;
+});
+
 class Layer {
     constructor(image, speedModifier){
         this.x = 0;
         this.y = 0;
         this.width = 2400;
         this.height = 700;
-        this.x2 = this.width;
         this.image = image;
         this.speedModifier = speedModifier;
         this.speed = gameSpeed * this.speedModifier;
@@ -29,17 +37,13 @@ class Layer {
     update(){
         this.speed = gameSpeed * this.speedModifier;
         if (this.x <= -this.width){
-            this.x = this.width + this.x2 - this.speed;
+            this.x = 0;
         }
-        if (this.x2 <= -this.width){
-          this.x2 = this.width + this.x - this.speed;
-        }
-        this.x = Math.floor(this.x - this.speed);
-        this.x2 = Math.floor(this.x2 - this.speed);
+        this.x = this.x - this.speed;
     }
     draw(){
         ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-        ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
+        ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
     }
 }
 
