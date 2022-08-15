@@ -8,8 +8,5 @@ Backgrounds are layered and moves seamlessly. Users can change the speed of the 
 ![background 2](https://user-images.githubusercontent.com/99015262/182806857-fea2e09d-0542-4f7d-9c07-3be088eafe10.png)
 
 
-### How to use
-
-Run the app in the development mode. Open index.html to view it in your browser.
-
-The page will reload when you make changes.
+### Check it out
+https://kthom123.github.io/js_game_pt2/
